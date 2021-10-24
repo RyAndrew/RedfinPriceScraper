@@ -2,8 +2,8 @@
 
 ## installing
 * install node from nodejs.org
-* create project dir
-* put app.js into dir
+* download code into a dir
+* cd into the dir
 * install dependencies via npm
   * run cmd: npm install
 * run cmd: node app.js
