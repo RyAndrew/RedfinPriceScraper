@@ -49,7 +49,7 @@ async function writeCookies(cookieFile, pageCookies){
   }
   pageCookies.sort((a, b) => a.name.localeCompare(b.name));
   try{
-    await fs.writeFile(cookieFile, JSON.stringify(pageCookies))
+    await fs.writeFile(cookieFile, JSON.stringify(pageCookies, null, '\t'))
   }catch(error){
     console.log('error writing cookie file')
   }
@@ -61,13 +61,10 @@ async function readCookies(cookieFile, page){
   try{
     cookies = await fs.readFile(cookieFile, "binary")
   }catch(err){
-    console.log('error reading cookie file')
-  }
-
-  if(cookies === false){
-    console.log('no existing cookies')
+    console.log('no saved cookies')
     return
   }
+
   if(cookies.length < 1){
     console.log('empty saved cookies file')
     return
